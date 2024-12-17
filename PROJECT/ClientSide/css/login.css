@@ -94,6 +94,7 @@ input[type="password"]:focus {
 }
 
 .submit-button {
+    margin-bottom: 3%;
     width: 100%; 
     background-color: #4CAF50; 
     color: white;
@@ -121,4 +122,25 @@ input[type="password"]:focus {
 
 .register-link a:hover {
     text-decoration: underline; 
+}
+.btna{
+    
+    
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s; 
+   
+    
+    margin-bottom: 4%;
+    margin-left: 10px;
+
+}
+span{
+    
+    font-size: 14px;
+    margin-left: 5%;
+    text-align: center;
+}
+.click{
+    margin-left: 2%;
 }

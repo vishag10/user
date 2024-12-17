@@ -45,6 +45,7 @@ body {
     background-color: #f44336; 
     color: white; 
     border: none; 
+    text-decoration: none;
     padding: 10px 15px; 
     border-radius: 5px; 
     cursor: pointer; 
