@@ -8,29 +8,36 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
        
-        const username= document.getElementById("username").value
+    
         const email= document.getElementById("email").value
         const password = document.getElementById("password").value
-        const cpassword = document.getElementById("confirm-password").value
 
         
 
-        console.log(username,email,password,cpassword);
+        console.log(email,password);
 
+     
         try {
-            const res= await fetch(API+"/api/adduser",{
+            const res= await fetch(API+"/api/login",{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
-                body:JSON.stringify({username,email,password,cpassword})
+                body:JSON.stringify({email,password})
             })
             if(res.status==200){
-                const {msg}=await res.json();
+                const {msg,token}=await res.json();
+                
                 alert(msg);
-                const username= document.getElementById("username").value=''
+                console.log(token);
+                
+                console.log(res.body);
+                localStorage.setItem('token',token);
                 const email= document.getElementById("email").value=''
                 const password = document.getElementById("password").value=''
-                const cpassword = document.getElementById("confirm-password").value=''
                 
+                 window.location.href="../index.html"
+               
+                
+    
             }else{
                 const {msg}=await res.json();
                 alert(msg);
@@ -42,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
         }
 
-        
         
     });
 })

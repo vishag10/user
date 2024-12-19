@@ -33,8 +33,11 @@ body {
     display: flex; 
     align-items: center; 
 }
-
+.username>label{
+    font-weight: 700;
+}
 .username {
+    word-spacing: 10px;
     text-decoration: none;
     margin-right: 15px; 
     font-size: 18px; 
