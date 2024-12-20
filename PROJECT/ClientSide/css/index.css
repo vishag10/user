@@ -58,3 +58,16 @@ body {
 .logout-button:hover {
     background-color: #d32f2f;
 }
+.photo{
+    margin-right: 4%;
+    width: 70px;
+    border-radius: 50%;
+    height: 60px;
+    background-color: #d32f2f;
+}
+.photo>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}

@@ -11,9 +11,12 @@ async function log(){
         }
     })
     if(res.status==200){
-        const {username}= await res.json()
+        const {username,profile}= await res.json()
         document.getElementById("nav").innerHTML=`
-                <span href="" class="username">HELLO <label for="">${username}</label></span>
+                <div class="photo">
+                    <img src="${profile}" alt="">
+                </div>
+                <span href="" class="username"><label for="">${username}</label></span>
                 <a href="./pages/login.html" class="logout-button">login</a>
         `
         

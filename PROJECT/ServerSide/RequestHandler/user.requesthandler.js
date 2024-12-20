@@ -3,9 +3,9 @@ import bcrypt from "bcrypt"
 import jrk from "jsonwebtoken"
 const {sign}=jrk
 export async function addUser(req,res){
-    const {username,email,password,cpassword}=req.body
+    const {username,email,password,cpassword,profile}=req.body
     console.log(username,email,password,cpassword);
-    if(!(username&&email&&password&&cpassword))
+    if(!(username&&email&&password&&cpassword&&profile))
         return res.status(404).send({msg:"fields are empty"})
     if(password!=cpassword)
         return res.status(404).send({msg:"password not match"})
@@ -18,7 +18,7 @@ export async function addUser(req,res){
     const hPassword=await bcrypt.hash(password,10)
     console.log(hPassword);
 
-    await userSchema.create({username,email,password:hPassword}).then(()=>{
+    await userSchema.create({username,email,password:hPassword,profile}).then(()=>{
         res.status(200).send({msg:"successfully created"})
     }).catch((err)=>{
         res.status(500).send({msg:err})
@@ -51,7 +51,7 @@ export async function Home(req,res){
         console.log(req.user);
         const _id=req.user.userID;
         const user=await userSchema.findOne({_id});
-        res.status(200).send({username:user.username})
+        res.status(200).send({username:user.username,profile:user.profile})
         
     } catch (error) {
         res.status(400).send({error})
